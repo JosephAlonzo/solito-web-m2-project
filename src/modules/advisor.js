@@ -11,7 +11,7 @@ export default{
     actions: {
         add: async function({commit}, payload){
             let data = await axios
-            .post("http://localhost:8000/api/advisor",{
+            .post("https://josephalonzo.com/api/advisor",{
                 ...payload,
                 'vigente': true
             })
@@ -27,7 +27,7 @@ export default{
         },
         get: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/advisor/userId/"+id)
+            .get("https://josephalonzo.com/api/advisor/userId/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -40,7 +40,7 @@ export default{
         },
         delete: async function({commit}, id){
             let data = await axios
-            .delete("http://localhost:8000/api/advisor/"+id)
+            .delete("https://josephalonzo.com/api/advisor/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;

@@ -11,7 +11,7 @@ export default{
     actions: {
         add: async function({commit}, payload){
             let data = await axios
-            .post("http://localhost:8000/api/sent",{
+            .post("https://josephalonzo.com/api/sent",{
                 ...payload,
                 'vigente': true
             })
@@ -28,7 +28,7 @@ export default{
         update: async function({commit}, payload){
             console.log(payload)
             let data = await axios
-            .put("http://localhost:8000/api/sent/"+payload.sentId+"/"+payload.status+"/"+payload.offerId)
+            .put("https://josephalonzo.com/api/sent/"+payload.sentId+"/"+payload.status+"/"+payload.offerId)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -41,7 +41,7 @@ export default{
         },
         get: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/sent/userId/"+id)
+            .get("https://josephalonzo.com/api/sent/userId/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -54,7 +54,7 @@ export default{
         },
         getById: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/sent/"+id)
+            .get("https://josephalonzo.com/api/sent/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -67,7 +67,7 @@ export default{
         },
         getByOfferId: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/sent/offerId/"+id)
+            .get("https://josephalonzo.com/api/sent/offerId/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -80,7 +80,7 @@ export default{
         },
         delete: async function({commit}, id){
             let data = await axios
-            .delete("http://localhost:8000/api/sent/"+id)
+            .delete("https://josephalonzo.com/api/sent/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;

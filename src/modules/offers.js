@@ -10,7 +10,7 @@ export default{
     actions: {
         add: async function({commit}, payload){
             let data = await axios
-            .post("http://localhost:8000/api/offers",{
+            .post("https://josephalonzo.com/api/offers",{
                 ...payload,
                 'vigente': true
             })
@@ -26,7 +26,7 @@ export default{
         },
         get: async function({commit}){
             let data = await axios
-            .get("http://localhost:8000/api/offers")
+            .get("https://josephalonzo.com/api/offers")
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -39,7 +39,7 @@ export default{
         },
         getByUser: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/offers/userId/"+id)
+            .get("https://josephalonzo.com/api/offers/userId/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;

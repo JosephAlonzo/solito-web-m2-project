@@ -11,7 +11,7 @@ export default{
     actions: {
         add: async function({commit}, payload){
             let data = await axios
-            .post("http://localhost:8000/api/notifications",{
+            .post("https://josephalonzo.com/api/notifications",{
                 ...payload,
                 'vigente': true
             })
@@ -27,7 +27,7 @@ export default{
         },
         get: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/notifications/"+id)
+            .get("https://josephalonzo.com/api/notifications/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;

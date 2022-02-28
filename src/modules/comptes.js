@@ -13,7 +13,7 @@ export default{
             let payload2 = {...payload}
             delete payload2['id']
             let data = await axios
-            .post("http://localhost:8000/api/comptes",{
+            .post("https://josephalonzo.com/api/comptes",{
                 ...payload2,
                 'vigente': true
             })
@@ -29,7 +29,7 @@ export default{
         },
         getCompte: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/comptes/"+id)
+            .get("https://josephalonzo.com/api/comptes/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
