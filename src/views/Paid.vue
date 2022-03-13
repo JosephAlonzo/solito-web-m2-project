@@ -48,6 +48,9 @@ export default {
         acceptCandidatura: 'update',
         getSentById: 'getById',
       }),
+      ...mapActions("offers", {
+        getOfferById: 'getById',
+      }),
       ...mapActions("notifications", {
         addNotification: 'add',
       }),
@@ -74,7 +77,8 @@ export default {
        
         if(this.candidature['code'] == 200){
           this.candidature = this.candidature['message'][0]
-          console.log(this.candidature);
+          
+          console.log("CANDIDATURE",this.candidature);
           if(this.candidature.status == "4"){
             this.ok = false;
             this.messageError = "Ce paiement a été déjà réalisé avant"
@@ -82,7 +86,7 @@ export default {
           }
           if( this.candidature.status == "1" ){
             let payload = {
-              sentId:this.candidature.sentId,
+              sentId:this.candidature.id,
               offerId:this.candidature.offerId,
               status:4
             }
@@ -95,7 +99,7 @@ export default {
         
         if(this.ok){
           let payload = {
-            userId: this.candidature.userOffer,
+            userId: this.candidature.offerUserId,
             message: `Le paiement a été bien effectué à ${this.candidature.firstNameSent} ${this.candidature.lastNameSent} pour un montant de ${this.candidature.price}€`,
             icon: "mdi-swap-horizontal",
             color: "green darken-1",
@@ -118,7 +122,7 @@ export default {
         }
         if(this.ok){
           let payload = {
-            userId: this.candidature.userSend,
+            userId: this.candidature.userId,
             date: currentDate,
             icon: "mdi-swap-horizontal",
             month: this.getMoth(),
@@ -130,7 +134,7 @@ export default {
         }
         if(this.ok){
           let payload = {
-            userId: this.candidature.userOffer,
+            userId: this.candidature.offerUserId,
             date: currentDate,
             icon: "mdi-swap-horizontal",
             month: this.getMoth(),

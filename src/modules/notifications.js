@@ -27,7 +27,7 @@ export default{
         },
         get: async function({commit}, id){
             let data = await axios
-            .get("https://josephalonzo.com/api/notifications/"+id)
+            .get("https://josephalonzo.com/api/notifications/"+id+"/byUser")
             .then((response) => {
                 let result = {...response.data};
                 return result;

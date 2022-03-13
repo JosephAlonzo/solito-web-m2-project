@@ -410,10 +410,12 @@ export default {
       this.form.avatar = this.avatars[index].src;
       this.e1++;
     },
+    ...mapActions('user', ['validateLogin']),
     async signup() {
-      console.log(this.form);
       let data = await this.add(this.form);
       if (data['code']==200) {
+        let user = await this.validateLogin({ email: this.form.email, password: this.form.password})
+        if(user['code'] == 200 ){
           localStorage.address = this.form.address;
           localStorage.address2 = this.form.address2;
           localStorage.city = this.form.city;
@@ -421,14 +423,15 @@ export default {
           localStorage.email = this.form.email;
           localStorage.firstName = this.form.firstName;
           localStorage.lastName = this.form.lastName;
-          localStorage.localId = this.form.localId;
+          localStorage.id = user["data"][0].id;
           localStorage.phone = this.form.phone;
           localStorage.avatar = this.form.avatar;
           localStorage.sexe = this.form.sexe;
           localStorage.type = this.form.type;
           localStorage.rating = 0;
           localStorage.evaluations = 0;
-          this.$router.push("/");
+        }
+        this.$router.push("/");
       } else {
         this.error = true;
       }

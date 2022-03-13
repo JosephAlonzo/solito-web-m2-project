@@ -39,7 +39,20 @@ export default{
         },
         getByUser: async function({commit}, id){
             let data = await axios
-            .get("https://josephalonzo.com/api/offers/userId/"+id)
+            .get("https://josephalonzo.com/api/offers/userId/"+id+"/byUser")
+            .then((response) => {
+                let result = {...response.data};
+                return result;
+            })
+            .catch(function (error) {
+                console.log(error)
+                return null
+             })
+            return data
+        },
+        getById: async function({commit}, id){
+            let data = await axios
+            .get("https://josephalonzo.com/api/offers/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;

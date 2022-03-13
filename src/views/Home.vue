@@ -514,7 +514,7 @@ export default {
         this.e1 = 1;
         let response = await this.getByUser(this.user.id);
         if (response['code'] == 200) {
-          this.myjobs = response['data'];
+          this.myjobs = response['message'];
           let keys = [];
           let tmp = {}
           for (let i in this.myjobs) {
@@ -601,7 +601,7 @@ export default {
     } else {
       let response = await this.getByUser(this.user.id);
       if (response['code'] == 200) {
-        this.myjobs = response['data'];
+        this.myjobs = response['message'];
         let keys = [];
         let tmp = {}
         for (let i in this.myjobs) {

@@ -28,6 +28,7 @@ export default {
   },
   async created(){
     let response = await this.get(localStorage.id);
+    console.log(response)
     if(response['code'] == 200){
       this.notifications = response['message']
       let keys = [];

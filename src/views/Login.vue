@@ -1,7 +1,7 @@
 <template>
   <v-container class="">
     <v-row  class="login d-flex justify-center">
-      <v-col cols="9" align="center" class="align-self-center col-6 col-sm-4 col-md-6">
+      <v-col cols="9" align="center" class="align-self-center col-6 col-sm-4 col-md-3">
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-img
             max-height="200"
@@ -127,10 +127,10 @@
       width: 90%;
     }
     .alert-success{
-    position: fixed;
-    top: 5%;
-    width: 80%;
-  }
+      position: fixed;
+      top: 5%;
+      width: 80%;
+    }
 </style>
 <script>
 import {mapState, mapMutations, mapActions} from 'vuex' 

@@ -14,7 +14,7 @@ export default{
             delete payload2['id']
             delete payload2['id2']
             let data = await axios
-            .patch("http://localhost:8000/api/user"+payload.id,{
+            .patch("https://josephalonzo.com/api/user"+payload.id,{
                 ...payload2
             })
             .then((response) => {
@@ -29,7 +29,7 @@ export default{
         },
         add: async function({commit}, payload){
             let data = await axios
-            .post("http://localhost:8000/api/user",{
+            .post("https://josephalonzo.com/api/user",{
                 ...payload
             })
             .then((response) => {
@@ -44,7 +44,7 @@ export default{
         },
         getUser: async function({commit}){
             let data = await axios
-            .get("http://localhost:8000/api/user")
+            .get("https://josephalonzo.com/api/user")
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -57,7 +57,7 @@ export default{
         },
         getUserById: async function({commit}, id){
             let data = await axios
-            .get("http://localhost:8000/api/user/"+id)
+            .get("https://josephalonzo.com/api/user/"+id)
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -69,8 +69,6 @@ export default{
             return data
         },
         validateLogin: async function({commit}, payload){
-            console.log(payload)
-
             let data = await axios
             .post("https://josephalonzo.com/api/user/login",{
                 ...payload

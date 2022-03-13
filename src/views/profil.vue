@@ -192,7 +192,7 @@ export default {
     async getRating(){
       let responseAdvisors =  await this.getAdvisorUser(this.id);
       if(responseAdvisors['code'] == 200){
-        this.advisors = responseAdvisors['data']
+        this.advisors = responseAdvisors['message']
         let rating = 0;
         let i = 0;
         for(let advisor of this.advisors){
@@ -200,7 +200,7 @@ export default {
           rating += advisor.rating
           let response = await this.getUserById(advisor.userIdAdvisor);
           if(response['code']==200){
-            this.advisors[i].user = response['data'][0]
+            this.advisors[i].user = response['message'][0]
           }
           i++
         }
@@ -218,10 +218,8 @@ export default {
     this.id = this.$route.params.id;
     this.idSend = this.$route.params.idSend;
     let response =  await this.getUserById(this.id);
-    
     if(response['code'] == 200){
-      console.log(response['data'][0])
-      this.userProfil = response['data'][0];
+      this.userProfil = response['message'][0];
       this.getRating();
     }
     

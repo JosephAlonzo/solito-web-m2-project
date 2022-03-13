@@ -28,7 +28,7 @@ export default{
         update: async function({commit}, payload){
             console.log(payload)
             let data = await axios
-            .put("https://josephalonzo.com/api/sent/"+payload.sentId+"/"+payload.status+"/"+payload.offerId)
+            .put("https://josephalonzo.com/api/sent/"+payload.sentId+"/"+payload.status+"/"+payload.offerId+"/updateStatus")
             .then((response) => {
                 let result = {...response.data};
                 return result;
@@ -41,9 +41,10 @@ export default{
         },
         get: async function({commit}, id){
             let data = await axios
-            .get("https://josephalonzo.com/api/sent/userId/"+id)
+            .get("https://josephalonzo.com/api/sent/userId/"+id+"/byUser")
             .then((response) => {
                 let result = {...response.data};
+                console.log(result)
                 return result;
             })
             .catch(function (error) {
@@ -67,7 +68,7 @@ export default{
         },
         getByOfferId: async function({commit}, id){
             let data = await axios
-            .get("https://josephalonzo.com/api/sent/offerId/"+id)
+            .get("https://josephalonzo.com/api/sent/offerId/"+id+"/byOffer")
             .then((response) => {
                 let result = {...response.data};
                 return result;

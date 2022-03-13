@@ -89,7 +89,7 @@ export default {
 
     showProfil() {
       this.$router.push({
-          path: '/profil/'+this.item.userOffer,
+          path: '/profil/'+this.item.userId,
         });
     },
     async annulerRdv(id){
@@ -122,7 +122,6 @@ export default {
   computed:{
   },
   async created(){
-    await this.getInformationUserLocalStorage();
   },
 };
 </script>

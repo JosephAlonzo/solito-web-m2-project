@@ -3,7 +3,7 @@
     <v-card elevation="2" class="mt-2 mx-0 px-2 pt-3 pb-3">
     <v-row>
       <v-col align="center">
-        <!-- {{item.data}} -->
+        <!-- {{item.message}} -->
         <v-avatar size="60">
             <img :src="user.avatar" alt=""> 
         </v-avatar>
@@ -127,7 +127,7 @@ export default {
         let response = await this.addSent(payload);
 
         if (response['code'] == 200) {
-          this.item.idSent = response['data'];
+          this.item.idSent = response['message'];
           this.$set(this.item, "isSent", true);
           this.btnText = "Annuler candidature"
         }
@@ -143,7 +143,7 @@ export default {
         }
         let response = await this.addFav(payload);
         if (response['code'] == 200) {
-          this.item.idFav = response['data'];
+          this.item.idFav = response['message'];
           this.item.isFav = true;
         }
       } 
@@ -167,7 +167,7 @@ export default {
   },
   async created() {
     this.user = await this.getUserById(this.item.userId)
-    this.user =  this.user['data'][0]
+    this.user =  this.user['message'][0]
 
     if (this.item.isFav) {
       this.heart = "mdi-heart";

@@ -284,9 +284,9 @@ export default {
     this.markers = await this.getOffers();
     this.s = await this.getSents(this.user.id);
     this.f = await this.getFavs(this.user.id);
-  
+    console.log(this.markers)
     if(this.markers['code'] == 200){
-      this.markers = this.markers['data'] 
+      this.markers = this.markers['message'] 
       for (let i of this.markers) {
         this.searchInformation.push(String(i.cp));
         this.searchInformation.push(i.address);

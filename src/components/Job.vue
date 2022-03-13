@@ -189,6 +189,7 @@ export default {
           break;
         }
       }
+      console.log(this.item)
       console.log(candidate)
       var element = document.createElement("div");
       const col = document.querySelector("#qrcode")
@@ -221,13 +222,11 @@ export default {
       let response = await this.getSentByOfferId(this.id)
       if(response['code'] == 200){
       this.candidates = response['message']
-      console.log(this.candidates)
     }
     }
   },
   async created(){
     await this.getCandidates();
-    console.log(this.id)
   }
 };
 </script>
