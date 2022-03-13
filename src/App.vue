@@ -3,7 +3,7 @@
     <v-app-bar app color="white" dark class="" elevation="0" v-if="showAppBar()" >
       <v-spacer></v-spacer>
       <div class="my-8 pl-10 text-center">
-        <v-img alt="solito Logo" class="shrink mr-2" contain src="@/assets/logo.png" transition="scale-transition" width="200" />
+        <v-img alt="solito Logo" class="shrink mr-2" contain src="@/assets/logo.png" transition="scale-transition" width="130" />
       </div>
       <v-spacer></v-spacer>
        <v-btn icon color="primary">
