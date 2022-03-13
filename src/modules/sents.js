@@ -11,7 +11,7 @@ export default{
     actions: {
         add: async function({commit}, payload){
             let data = await axios
-            .post("https://josephalonzo.com/api/sent",{
+            .post("http://localhost:8000/api/sent",{
                 ...payload,
                 'vigente': true
             })

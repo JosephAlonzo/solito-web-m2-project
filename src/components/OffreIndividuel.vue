@@ -122,7 +122,8 @@ export default {
       else{
         let payload = {
           userId: this.currentUser.id,
-          offerId: this.item.id
+          offerId: this.item.id,
+          status: 1,
         }
         let response = await this.addSent(payload);
 
